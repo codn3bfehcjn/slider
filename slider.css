@@ -1,0 +1,21 @@
+.slides{
+  display: flex;
+  transition: all 0.7s ease;
+}
+
+.container{
+  width: 300px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.prev{cursor: pointer;}
+
+.next{cursor: pointer;}
+
+.button{
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  cursor: pointer;
+}

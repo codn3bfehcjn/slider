@@ -30,8 +30,8 @@ function nextSlide() {
     }
 }
 
-// setInterval(() => nextSlide(), 1200);
-btn2.addEventListener("click",nextSlide)
+setInterval(() => nextSlide(), 1200);
+// btn2.addEventListener("click",nextSlide)
 
 
 

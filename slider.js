@@ -24,7 +24,7 @@ function nextSlide() {
 }
 
 function prevSlide() {
-    if (curentslide > 0) {
+    if (curentslide > 0) { //checking from 1st index
         curentslide--;
     } else {
         curentslide = length-1; // here also the same as 1st comment

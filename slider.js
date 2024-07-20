@@ -1,49 +1,43 @@
 let slides = document.querySelector(".slides");
 let slide = document.querySelectorAll(".slide");
+let curentslide = 0; 
+let width = 300; 
+let length = slide.length; //length = 5 (index = 0,1,2,3,4)
 let btn1 = document.querySelector(".prev");
 let btn2 = document.querySelector(".next");
-let update = 1;
-const totalSlides = slide.length;
 
-// function nextSlide() {
-//     slide.forEach((element) => {
-//         if (update< totalSlides) {
-//             element.style.transform = `translateX(-${update * 300}px)`;
-//         }
-//         else {
-//             element.style.transform = `translateX(0px)`;
-//           update = 0; 
-//         }
-//     }) ;
-//    update++;
-// }
+
+function updateSlidePosition() {
+    slides.style.transform = `translateX(-${curentslide * width}px)`;
+}
+
 
 function nextSlide() {
-    if (update < totalSlides) {
-        slides.style.transform = `translateX(-${update * 300}px)`;
-        update = update+1;
+    if (curentslide < length) {
+        curentslide++;
     }
-    else {
-        slides.style.transform = `translateX(0px)`;
-        slides.style.transition = "all 2.3s ease"
-        update = 0;
+    updateSlidePosition();
+
+    if (curentslide === length-1) {  1.//if we remove this it will add a extra empty slide leading to a unexpected behaviour(meaning currentslide will go on to 5 slides(but it should go to 0 1 2 3 4))
+        btn2.removeEventListener("click", nextSlide);
     }
+        btn1.addEventListener("click", prevSlide);
 }
-
-setInterval(() => nextSlide(), 1200);
-// btn2.addEventListener("click",nextSlide)
-
-
 
 function prevSlide() {
-    if (update>0) {
-        update--;
-    }else{
-        update = totalSlides-1
+    if (curentslide > 0) {
+        curentslide--;
+    } else {
+        curentslide = length-1; //
     }
-    slides.style.transform = `translateX(-${update * 300}px)`;
-     slides.style.transition = "all 1.2s ease"
+    updateSlidePosition();
+
+    //to check if we're on the first slide
+    if (curentslide === 0) { // here also the same as 1stcomment
+        btn1.removeEventListener("click", prevSlide);
+    }
+        btn2.addEventListener("click", nextSlide);
 }
 
-// setInterval(() => prevSlide(), 1200);
+btn2.addEventListener("click", nextSlide);
 btn1.addEventListener("click", prevSlide);

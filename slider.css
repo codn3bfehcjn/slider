@@ -1,21 +1,21 @@
-.slides{
-  display: flex;
-  transition: all 0.3s ease;
-}
-
 .container{
-  width: 300px;
-  overflow: hidden;
-  margin: 0 auto;
+    width: 300px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.slides{
+    display: flex;
+    transition: all 0.8s ease;
+}
+.slide{
+    width: 100%;
 }
 
-.prev{cursor: pointer;}
+.fade{
+    animation: fade 1.3s;
+}
 
-.next{cursor: pointer;}
-
-.button{
-  display: flex;
-  justify-content: center;
-  gap: 100px;
-  cursor: pointer;
+@keyframes fade{
+    from {opacity: 0.4;}
+    to{opacity: 1;}
 }

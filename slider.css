@@ -16,6 +16,13 @@
     animation: fade 1.3s;
 }
 
+.btn{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 10px;
+}
+
 @keyframes fade{
     from {opacity: 0.4;}
     to{opacity: 1;}

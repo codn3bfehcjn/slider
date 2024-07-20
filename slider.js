@@ -16,7 +16,8 @@ function nextSlide() {
         curentslide++;
     }
     updateSlidePosition();
-
+    
+  //to check if we're on the last slide
     if (curentslide === length-1) {  1.//if we remove this it will add a extra empty slide leading to a unexpected behaviour(meaning currentslide will go on to 5 slides(but it should go to 0 1 2 3 4))
         btn2.removeEventListener("click", nextSlide);
     }

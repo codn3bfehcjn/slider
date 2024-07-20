@@ -11,7 +11,6 @@ function updateSlidePosition() {
     slides.style.transform = `translateX(-${curentslide * width}px)`;
 }
 
-
 function nextSlide() {
     if (curentslide < length) {
         curentslide++;
@@ -28,12 +27,12 @@ function prevSlide() {
     if (curentslide > 0) {
         curentslide--;
     } else {
-        curentslide = length-1; //
+        curentslide = length-1; // here also the same as 1st comment
     }
     updateSlidePosition();
 
     //to check if we're on the first slide
-    if (curentslide === 0) { // here also the same as 1stcomment
+    if (curentslide === 0) {
         btn1.removeEventListener("click", prevSlide);
     }
         btn2.addEventListener("click", nextSlide);
